@@ -13,6 +13,7 @@ public class MainActivity extends ActionBarActivity {
 	public float num1=0,num2=0,result=0,product=1;
 	public String n1,n2,op="";
 	public boolean isdot=false;
+	public boolean isresult = false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +47,9 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (isresult){
+					text.setText("");
+					} 
 				text.append("1");
 				caldisp.append("1");
 			}
@@ -54,6 +58,9 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (isresult){
+					text.setText("");
+					} 
 				text.append("2");
 				caldisp.append("2");
 			}
@@ -62,6 +69,9 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (isresult){
+					text.setText("");
+					} 
 				text.append("3");
 				caldisp.append("3");
 			}
@@ -70,6 +80,9 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (isresult){
+					text.setText("");
+					} 
 				text.append("4");
 				caldisp.append("4");
 			}
@@ -78,6 +91,9 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (isresult){
+					text.setText("");
+					} 
 				text.append("5");
 				caldisp.append("5");
 			}
@@ -86,6 +102,9 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (isresult){
+					text.setText("");
+					} 
 				text.append("6");
 				caldisp.append("6");
 			}
@@ -94,6 +113,9 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (isresult){
+					text.setText("");
+					} 
 				text.append("7");
 				caldisp.append("7");
 			}
@@ -102,6 +124,9 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (isresult){
+					text.setText("");
+					} 
 				text.append("8");
 				caldisp.append("8");
 			}
@@ -110,6 +135,9 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (isresult){
+					text.setText("");
+					} 
 				text.append("9");
 				caldisp.append("9");
 			}
@@ -118,6 +146,9 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (isresult){
+					text.setText("");
+					} 
 				text.append("0");
 				caldisp.append("0");
 			}
@@ -139,6 +170,9 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if (isresult){
+					text.setText("");
+					} 
 				if (!isdot){
 				text.append(".");
 				caldisp.append(".");
@@ -158,9 +192,29 @@ public class MainActivity extends ActionBarActivity {
 				else{
 					num1=0;
 				}
-				
-				
-				result =result +num1;
+			
+				if (op.equals("S")){
+					result=result-num1;
+					product=result;
+				}
+				else{
+					if(op.equals("A")){
+                        result = result + num1;
+                        product=result;
+                }
+					if(op.equals("M")){
+                        result = result * num1;
+                        product = result;
+                }
+					if(op.equals("D")){
+                        result = result / num1;
+                        product = result;
+                }
+					else{
+						result =result +num1;
+					}
+				}
+				//result =result +num1;
 				op = "A";
 				if (text.getText().toString().equals("")){
 					if(!caldisp.getText().toString().equals("")){
@@ -188,9 +242,25 @@ public class MainActivity extends ActionBarActivity {
 				
 				if (op.equals("S")){
 					result=result-num1;
+					product=result;
 				}
 				else{
-				result =num1;
+					if(op.equals("A")){
+				        result = result + num1;
+                        product=result;
+                }
+					else if(op.equals("M")){
+                        result = result * num1;
+                        product = result;
+                }
+					else if(op.equals("D")){
+                        result = result / num1;
+                        product = result;
+                }
+					else{
+						result =num1;
+						product= result;
+					}
 				}
 				op = "S";
 				if (text.getText().toString().equals("")){
@@ -216,7 +286,30 @@ public class MainActivity extends ActionBarActivity {
 					num1=0;
 				}
 				
+				if (op.equals("S")){
+					result=result-num1;
+					product=result;
+				}
+				else{
+					if(op.equals("A")){
+                        result = result + num1;
+                        product=result;
+                }
+					else if(op.equals("M")){
+                        result = result * num1;
+                        product = result;
+                }
+					else if(op.equals("D")){
+						result = result / num1;
+                        product = result;
+                }
+					else{
+						result =num1;
+						product=result;
+					}
+				}
 				
+				/*
 				if (op.equals("D")){
 					product=product/num1;
 					result=product;
@@ -224,7 +317,7 @@ public class MainActivity extends ActionBarActivity {
 				else{
 				product =num1;
 				result=product;
-				}
+				}*/
 				op = "D";
 				if (text.getText().toString().equals("")){
 					if(!caldisp.getText().toString().equals("")){
@@ -252,8 +345,33 @@ public class MainActivity extends ActionBarActivity {
 					num1=0;
 				}
 				
-				product =product *num1;
-				result=product;
+				
+				if (op.equals("S")){
+					result=result-num1;
+					product=result;
+				}
+				else{
+					if(op.equals("A")){
+                        result = result + num1;
+                        product=result;
+                }
+					else if(op.equals("M")){
+                        result = result * num1;
+                        product = result;
+                }
+					else if(op.equals("D")){
+                        result = result / num1;
+                        product = result;
+                }
+					else{
+						product =product *num1;
+						result=product;
+					}
+				}
+				
+				
+				//product =product *num1;
+				//result=product;
 				op = "M";
 				if (text.getText().toString().equals("")){
 					if(!caldisp.getText().toString().equals("")){
@@ -276,6 +394,7 @@ public class MainActivity extends ActionBarActivity {
 					num2 = Float.parseFloat(n2);
 				}
 				}
+				
 				else{
 					num2=0;
 				}
@@ -288,21 +407,25 @@ public class MainActivity extends ActionBarActivity {
 						result= result + num2;
 						text.setText(Float.toString(result));
 						product=result;
+						isresult=true;
 						break;
 					case "M":
 						product= product * num2;
 						text.setText(Float.toString(product));
 						result=product;
+						isresult=true;
 						break;
 					case "S":
 						result= result - num2;
 						text.setText(Float.toString(result));
 						product=result;
+						isresult=true;
 						break;
 					case "D":
 						product= product / num2;
 						text.setText(Float.toString(product));
 						result=product;
+						isresult=true;
 						break;
 					default:
 						
