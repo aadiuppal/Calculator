@@ -49,9 +49,11 @@ public class MainActivity extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				if (isresult){
 					text.setText("");
+					caldisp.setText("");
 					} 
 				text.append("1");
 				caldisp.append("1");
+				isresult=false;
 			}
 		});
 		button2.setOnClickListener(new View.OnClickListener() {
@@ -60,9 +62,11 @@ public class MainActivity extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				if (isresult){
 					text.setText("");
+					caldisp.setText("");
 					} 
 				text.append("2");
 				caldisp.append("2");
+				isresult=false;
 			}
 		});
 		button3.setOnClickListener(new View.OnClickListener() {
@@ -71,9 +75,11 @@ public class MainActivity extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				if (isresult){
 					text.setText("");
+					caldisp.setText("");
 					} 
 				text.append("3");
 				caldisp.append("3");
+				isresult=false;
 			}
 		});
 		button4.setOnClickListener(new View.OnClickListener() {
@@ -82,9 +88,11 @@ public class MainActivity extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				if (isresult){
 					text.setText("");
+					caldisp.setText("");
 					} 
 				text.append("4");
 				caldisp.append("4");
+				isresult=false;
 			}
 		});
 		button5.setOnClickListener(new View.OnClickListener() {
@@ -93,9 +101,11 @@ public class MainActivity extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				if (isresult){
 					text.setText("");
+					caldisp.setText("");
 					} 
 				text.append("5");
 				caldisp.append("5");
+				isresult=false;
 			}
 		});
 		button6.setOnClickListener(new View.OnClickListener() {
@@ -104,9 +114,11 @@ public class MainActivity extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				if (isresult){
 					text.setText("");
+					caldisp.setText("");
 					} 
 				text.append("6");
 				caldisp.append("6");
+				isresult=false;
 			}
 		});
 		button7.setOnClickListener(new View.OnClickListener() {
@@ -115,9 +127,11 @@ public class MainActivity extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				if (isresult){
 					text.setText("");
+					caldisp.setText("");
 					} 
 				text.append("7");
 				caldisp.append("7");
+				isresult=false;
 			}
 		});
 		button8.setOnClickListener(new View.OnClickListener() {
@@ -126,9 +140,11 @@ public class MainActivity extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				if (isresult){
 					text.setText("");
+					caldisp.setText("");
 					} 
 				text.append("8");
 				caldisp.append("8");
+				isresult=false;
 			}
 		});
 		button9.setOnClickListener(new View.OnClickListener() {
@@ -137,9 +153,11 @@ public class MainActivity extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				if (isresult){
 					text.setText("");
+					caldisp.setText("");
 					} 
 				text.append("9");
 				caldisp.append("9");
+				isresult=false;
 			}
 		});
 		buttonzero.setOnClickListener(new View.OnClickListener() {
@@ -148,9 +166,11 @@ public class MainActivity extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				if (isresult){
 					text.setText("");
+					caldisp.setText("");
 					} 
 				text.append("0");
 				caldisp.append("0");
+				isresult=false;
 			}
 		});
 		buttonback.setOnClickListener(new View.OnClickListener() {
@@ -160,10 +180,14 @@ public class MainActivity extends ActionBarActivity {
 				text.setText("");
 				caldisp.setText("");
 				result=0;
+				n1="";
+				n2="";
 				num1=0;
 				num2=0;
 				product=1;
+				op="";
 				isdot=false;
+				isresult=false;
 			}
 		});
 		buttondot.setOnClickListener(new View.OnClickListener() {
@@ -192,7 +216,7 @@ public class MainActivity extends ActionBarActivity {
 				else{
 					num1=0;
 				}
-			
+				
 				if (op.equals("S")){
 					result=result-num1;
 					product=result;
@@ -202,19 +226,21 @@ public class MainActivity extends ActionBarActivity {
                         result = result + num1;
                         product=result;
                 }
-					if(op.equals("M")){
+					else if(op.equals("M")){
                         result = result * num1;
                         product = result;
                 }
-					if(op.equals("D")){
+					else if(op.equals("D")){
                         result = result / num1;
                         product = result;
                 }
 					else{
-						result =result +num1;
+						result =num1;
+						product=result;
 					}
 				}
 				//result =result +num1;
+				//caldisp.append(Float.toString(result));
 				op = "A";
 				if (text.getText().toString().equals("")){
 					if(!caldisp.getText().toString().equals("")){
